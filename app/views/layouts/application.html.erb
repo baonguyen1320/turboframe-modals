@@ -8,14 +8,18 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" />
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
   <%= Time.current %>
     <main class="container mx-auto mt-28 px-5 flex">
-      <%= turbo_frame_tag 'modal-frame' %>
+      <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+        <%= turbo_frame_tag 'modal-frame' %>
+      </div>
       <%= yield %>
     </main>
   </body>
+  <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
 </html>
