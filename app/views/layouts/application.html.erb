@@ -12,7 +12,9 @@
   </head>
 
   <body>
+  <%= Time.current %>
     <main class="container mx-auto mt-28 px-5 flex">
+      <%= turbo_frame_tag 'modal-frame' %>
       <%= yield %>
     </main>
   </body>
