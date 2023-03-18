@@ -9,6 +9,14 @@
     <%= post.body %>
   </p>
 
+  <div
+    data-controller="poll"
+    data-poll-url-value="<%= view_count_path(post) %>"
+    data-poll-refresh-interval-value="5000"
+  >
+    Loading... This content will be reloaded every 5 seconds.
+  </div>
+
   <% if action_name != "show" %>
     <%= link_to "Show this post", post, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this post', edit_post_path(post), data: { turbo_frame: 'modal-frame' }, class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>

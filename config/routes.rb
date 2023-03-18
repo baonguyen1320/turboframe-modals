@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "posts#index"
+
+  get 'posts/:id/view_count', to: 'posts#view_count', as: :view_count
 end
