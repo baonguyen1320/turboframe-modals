@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_post, only: %i[ show edit update destroy view_count]
 
   # GET /posts or /posts.json
   def index
@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    @post.increment!(:views)
   end
 
   # GET /posts/new
@@ -62,6 +63,10 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def view_count
+    render partial: 'posts/view_count'
   end
 
   private
